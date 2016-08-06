@@ -1,61 +1,58 @@
 <?php
 /**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * e.g., it puts together the home page when no home.php file exists.
- *
- * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
- *
  * @package WordPress
- * @subpackage Twenty_Fifteen
- * @since Twenty Fifteen 1.0
- */
+ * @subpackage ParentTheme
+ * @license GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ **/
+#################################################################################################### */
 
-get_header(); ?>
+get_template_part( 'header' );
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+?>
+<div id="section-main" class="row">
+	<div class="large-8 columns layout-loop">
+		<?php
+		if ( have_posts() ) {
 
-		<?php if ( have_posts() ) : ?>
+			get_template_part('section-archive-titles');
 
-			<?php if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-			<?php endif; ?>
+			while ( have_posts() ) {
 
-			<?php
-			// Start the loop.
-			while ( have_posts() ) : the_post();
+				the_post();
+				get_template_part( 'section', get_post_type() );
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'content', get_post_format() );
+			}
 
-			// End the loop.
-			endwhile;
+			if ( ThemeFunctions::do_comments() ) {
 
-			// Previous/next page navigation.
-			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'twentyfifteen' ),
-				'next_text'          => __( 'Next page', 'twentyfifteen' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>',
-			) );
+				comments_template( '', true );
 
-		// If no content, include the "No posts found" template.
-		else :
-			get_template_part( 'content', 'none' );
+			}
 
-		endif;
+			ThemeFunctions::previous_next___post_link();
+			ThemeFunctions::previous_next___posts_link();
+
+		} else {
+			// There were no post? maybe 404 or maybe a search?
+
+			if ( is_404() ) {
+
+				get_template_part( 'section', '404' );
+
+			} else if ( is_search() ) {
+
+				get_template_part( 'section', 'search' );
+
+			}
+
+		}
 		?>
+	</div>
+	<div class="large-4 columns">
+		<?php ThemeFunctions::get_widget_area( 'Primary Sidebar' ); ?>
+	</div>
+</div>
 
-		</main><!-- .site-main -->
-	</div><!-- .content-area -->
+<?php
 
-<?php get_footer(); ?>
+get_template_part( 'footer' );
