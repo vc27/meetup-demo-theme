@@ -9,7 +9,10 @@ This theme is demo for the Nashville meetup series on how to build a WordPress T
 ChangeLog
 ====================
 
-### 08.06.16 - v-0.2.0 randy-c-3.0
+### 08.06.16 - v-0.2.0 randy-c-2.2
+- update styles.css
+
+### 08.06.16 - v-0.2.0 randy-c-2.1
 - add single column template
 - add post navigation
 - move title above sidebar and content

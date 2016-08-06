@@ -28,6 +28,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 	padding-right:7px;
 }
 
+body.blog .layout-loop .hentry,
 body.archive .layout-loop .hentry {
 	padding-bottom:30px;
 }
