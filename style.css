@@ -13,3 +13,29 @@ Text Domain: my-coo-theme
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 #################################################################################################### */
+
+.layout-site-credits {
+	padding-bottom:30px;
+}
+.navigation-posts {
+	padding-top:30px;
+}
+.wp-pagenavi span, .wp-pagenavi a {
+	display:inline-block;
+	vertical-align:middle;
+	line-height:30px;
+	padding-left:7px;
+	padding-right:7px;
+}
+
+body.archive .layout-loop .hentry {
+	padding-bottom:30px;
+}
+
+.widget-box {
+	padding-bottom:30px;
+}
+
+.menu-primary-menu-navigation-container {
+	padding-bottom:30px;
+}

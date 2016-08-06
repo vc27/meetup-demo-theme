@@ -7,6 +7,7 @@
 #################################################################################################### */
 
 get_template_part( 'header' );
+get_template_part('section-archive-titles');
 
 ?>
 <div id="section-main" class="row">
@@ -14,12 +15,14 @@ get_template_part( 'header' );
 		<?php
 		if ( have_posts() ) {
 
-			get_template_part('section-archive-titles');
-
 			while ( have_posts() ) {
 
 				the_post();
-				get_template_part( 'section', get_post_type() );
+				if ( is_search() ) {
+					get_template_part( 'section', 'post' );
+				} else {
+					get_template_part( 'section', get_post_type() );
+				}
 
 			}
 

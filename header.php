@@ -13,10 +13,14 @@ get_template_part( 'header-head' );
 <body <?php body_class(); echo apply_filters( 'tag_body_attr', '' ); ?>>
 	<?php do_action('after_body_tag'); ?>
 
-	<?php
-	wp_nav_menu( array(
-		'fallback_cb' => '',
-		'theme_location' => 'primary-menu',
-		'menu_class' => 'menu',
-	) );
-	?>
+	<div class="row">
+		<div class="large-11 columns end">
+			<?php
+			wp_nav_menu( array(
+				'fallback_cb' => '',
+				'theme_location' => 'primary-menu',
+				'menu_class' => 'menu',
+			) );
+			?>
+		</div>
+	</div>

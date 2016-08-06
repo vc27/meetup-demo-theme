@@ -6,22 +6,7 @@
  **/
 #################################################################################################### */
 
-if ( is_single() ) {
-?>
-
-	<div <?php post_class(); ?>>
-		<h1><?php the_title(); ?></h1>
-		<div class="subheader"><?php the_date(); ?></div>
-		<div class="button-group">
-			<a class="button alert small" href="<?php the_author_link(); ?>">By: <?php the_author(); ?></a>
-			<a class="button alert small" href="<?php comments_link(); ?>"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></a>
-		</div>
-		<div class="entry">
-			<?php the_content(); ?>
-		</div>
-	</div>
-
-<?php } else { ?>
+if ( is_home() OR is_archive() OR is_search() ) { ?>
 
 	<div <?php post_class(); ?>>
 		<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
@@ -38,4 +23,27 @@ if ( is_single() ) {
 		</div>
 	</div>
 
-<?php } ?>
+<?php } else if ( is_single() ) { ?>
+
+	<div <?php post_class(); ?>>
+		<div class="subheader"><?php the_date(); ?></div>
+		<a class="tiny button" href="<?php the_author_link(); ?>">By: <?php the_author(); ?></a>
+		<a class="tiny button" href="<?php comments_link(); ?>"><?php comments_number( '0 Comments', '1 Comment', '% Comments' ); ?></a>
+		<div class="entry">
+			<?php the_content(); ?>
+		</div>
+		<hr />
+		<div class="row">
+			<div class="large-6 columns">
+				<div class="subheader">Categories</div>
+				<?php the_category( ', ' ); ?>
+			</div>
+			<div class="large-6 columns">
+				<div class="subheader">Tags</div>
+				<?php the_tags( '', ', ', '' ); ?>
+			</div>
+		</div>
+		<hr />
+	</div>
+
+<?php }

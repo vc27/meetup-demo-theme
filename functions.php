@@ -111,7 +111,7 @@ class ThemeFunctions {
 
 		// CSS Local - able to be dependant on eachother
 		wp_register_style( 'foundations', get_stylesheet_directory_uri() . "/css/foundation.min.css", [], null );
-		wp_register_style( 'ThemeFunctions-style', get_stylesheet_directory_uri() . "/css/style.css", ['foundations'], null );
+		wp_register_style( 'ThemeFunctions-style', get_stylesheet_directory_uri() . "/style.css", ['foundations'], null );
 
 		// Scripts
 		wp_register_script( 'ThemeFunctions-scripts', get_stylesheet_directory_uri() . "/js/siteScripts.js", ['jquery'], null );
@@ -154,7 +154,7 @@ class ThemeFunctions {
 		wp_enqueue_style( 'ThemeFunctions-style' );
 
 		// JS Scripts
-		wp_enqueue_script( 'ThemeFunctions-scripts' );
+		// wp_enqueue_script( 'ThemeFunctions-scripts' );
 
 	} // function wp_enqueue_scripts
 
