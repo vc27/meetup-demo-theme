@@ -106,7 +106,7 @@ class ThemeFunctions {
 	function register_style_and_scripts() {
 
 		// CSS External - must not be required by local resources
-		wp_register_style( 'google-fonts', "https://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic", [], null );
+		// wp_register_style( 'google-fonts', "https://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic", [], null );
 		wp_register_style( 'font-awesome', "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css", [], null );
 
 		// CSS Local - able to be dependant on eachother
@@ -149,7 +149,7 @@ class ThemeFunctions {
 	function wp_enqueue_scripts() {
 
 		// Styles
-		wp_enqueue_style( 'google-fonts' );
+		// wp_enqueue_style( 'google-fonts' );
 		wp_enqueue_style( 'font-awesome' );
 		wp_enqueue_style( 'ThemeFunctions-style' );
 
