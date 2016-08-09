@@ -5,9 +5,13 @@ This theme is demo for the Nashville meetup series on how to build a WordPress T
 
 ### Asseets
 - CSS from: Complete: http://foundation.zurb.com/sites/download.html/
+- Icons: https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css
 
 ChangeLog
 ====================
+
+### 08.09.16 - v-0.2.1 randy-c-3.1
+- clean meeting notes
 
 ### 08.09.16 - v-0.2.1 randy-c-3.0
 - comment out google fonts, not being used
